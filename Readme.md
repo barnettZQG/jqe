@@ -4,6 +4,15 @@ jqe 是一个简单的 json 文件编辑命令工具，可以修改 json 文件�
 
 # 使用方式
 
+* 安装
+
+```
+# Linux
+wget https://github.com/barnettZQG/jqe/releases/download/0.1/linux-jqe -O /usr/bin/jqe
+Or
+wget https://buildpack.oss-cn-shanghai.aliyuncs.com/common/utils/jqe -O /usr/bin/jqe
+
+```
 
 * 新增或更新某个字段
 ```
