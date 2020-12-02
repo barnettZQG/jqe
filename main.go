@@ -1,6 +1,8 @@
 package main
 
 import (
+	"bytes"
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -66,6 +68,8 @@ func main() {
 						if err != nil {
 							log.Fatalf("param %s value failure %s", k, err.Error())
 						}
+					default:
+						value = v
 					}
 					jsonStruct.SetPath(strings.Split(k, "."), value)
 				}
@@ -131,7 +135,9 @@ func writeFile(filename string, jsonStruct *simplejson.Json) error {
 		return fmt.Errorf("open json file failure %s", err.Error())
 	}
 	defer f.Close()
-	_, err = f.Write(body)
+	var str bytes.Buffer
+	json.Indent(&str, body, "", "    ")
+	_, err = f.Write(str.Bytes())
 	if err != nil {
 		return fmt.Errorf("write json file failure %s", err.Error())
 	}
