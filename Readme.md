@@ -4,8 +4,15 @@ jqe 是一个简单的 json 文件编辑命令工具，可以修改 json 文件�
 
 # 使用方式
 
+
+* 新增或更新某个字段
 ```
 ./jqe update -f test.json a1="a3"
 ./jqe update -f test.json a2.a33=43 -t int 
 ./jqe update -f test.json a3.a33=true -t bool
+```
+
+* 获取某字段的值
+```
+./jqe get a2.a33 -f test.json
 ```
